@@ -1,0 +1,35 @@
+@use './../abstracts/variables' as var;
+
+.ff-secondary {
+    font-family: var(--ff-secondary);
+}
+
+.fw-thin {
+    font-weight: var(--fw-thin);
+}
+
+.fw-regular {
+    font-weight: var(--fw-regular);
+}
+
+.fw-medium {
+    font-weight: var(--fw-medium);
+}
+
+.fw-bold {
+    font-weight: var(--fw-bold);
+}
+
+.fst-italic {
+    font-style: italic;
+}
+
+.fst-normal {
+    font-style: normal;
+}
+
+@each $key, $size in var.$font-sizes {
+    .fs-#{$key} {
+        font-size: $size;
+    }
+}

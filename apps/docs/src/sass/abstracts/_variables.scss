@@ -1,0 +1,64 @@
+@use 'sass:math';
+
+:root {
+    // Colours
+    --cl-green: hsl(116, 70%, 39%);
+    --cl-grey: hsl(0, 0%, 91%);
+
+    --color-green: hsl(122, 39%, 49%);
+    --color-green--button: hsl(108, 22%, 52%);
+    --color-green--disabled-button: hsl(111, 27%, 85%);
+    --color-green--font: hsl(108, 22%, 57%);
+    --color-green--hover: hsl(122, 39%, 60%);
+    --color-green--check: hsl(106, 21%, 52%);
+    --color-green--check--hover: hsl(109, 27%, 74%);
+    --color-amber: hsl(45, 100%, 51%);
+    --color-amber--hover: hsl(45, 100%, 60%);
+    --color-grey: hsl(0, 0%, 91%);
+    --color-grey--hover: hsl(0, 0%, 93%);
+    --color-red: hsl(4, 90%, 58%);
+    --color-blue--background: hsl(204, 87%, 93%);
+    --color-blue--button: hsl(214, 73%, 43%);
+
+    // Font Family
+    --ff-primary: 'Roboto', 'Helvetica Neue', sans-serif;
+    --ff-secondary: 'Poppins', 'Helvetica Neue', sans-serif;
+
+    // Font sizes
+    --fs-xs: 0.625rem; // 10px
+    --fs-sm: 0.75rem; // 12px
+    --fs-base: 0.875rem; // 14px
+    --fs-lg: 1.125rem; // 18px
+    --fs-xl: 1.25rem; // 20px
+    --fs-xxl: 1.9375rem; // 31px
+
+    // Font Weights
+    --fw-thin: 100;
+    --fw-regular: 400;
+    --fw-medium: 500;
+    --fw-bold: 700;
+
+    // Sizes
+    --size-sm: 4px;
+    --size-md: 8px;
+    --size-lg: 12px;
+    --size-xl: 16px;
+    --size-xxl: 22px;
+}
+
+$font-sizes: (
+    xxl: var(--fs-xxl),
+    xl: var(--fs-xl),
+    lg: var(--fs-lg),
+    base: var(--fs-base),
+    sm: var(--fs-sm),
+    xs: var(--fs-xs)
+);
+
+$sizes: (
+    sm: var(--size-sm),
+    md: var(--size-md),
+    lg: var(--size-lg),
+    xl: var(--size-xl),
+    xxl: var(--size-xxl)
+);

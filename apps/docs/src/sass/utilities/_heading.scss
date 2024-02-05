@@ -1,0 +1,45 @@
+@use 'sass:map' as map;
+@use 'sass:list' as list;
+@use './../abstracts/variables' as var;
+
+$headings: ();
+
+$values: map.values(var.$font-sizes);
+
+@each $value in $values {
+    @if (list.length($headings) < 5) {
+        $headings: list.append($headings, $value);
+    }
+}
+
+@each $size in $headings {
+    $index: list.index($headings, $size);
+
+    h#{$index}.heading {
+        font-size: $size;
+        margin-bottom: 12px;
+    }
+}
+
+@each $key, $size in (3: var(--fs-base), 4: var(--fs-sm), 5: var(--fs-xs)) {
+    h#{$key}.subheading {
+        font-size: $size;
+        margin-bottom: 4px;
+    }
+}
+
+.heading,
+.subheading {
+    line-height: 1.5;
+    margin: 0;
+    margin-block: 0;
+}
+
+.heading:not([class*='fw-']) {
+    font-weight: var(--fw-bold);
+}
+
+.subheading {
+    opacity: 0.6;
+    font-weight: var(--fw-regular);
+}

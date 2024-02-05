@@ -1,0 +1,41 @@
+@use './../abstracts/mixins' as *;
+
+.mg {
+    @include generateSizes(margin);
+
+    &-top {
+        @include generateSizes(margin-top);
+
+        &--auto {
+            margin-top: auto;
+        }
+    }
+
+    &-bottom {
+        @include generateSizes(margin-bottom);
+
+        &--auto {
+            margin-bottom: auto;
+        }
+    }
+
+    &-left {
+        @include generateSizes(margin-left);
+
+        &--auto {
+            margin-left: auto;
+        }
+    }
+
+    &-right {
+        @include generateSizes(margin-right);
+
+        &--auto {
+            margin-right: auto;
+        }
+    }
+}
+
+.mg-auto {
+    margin: auto;
+}

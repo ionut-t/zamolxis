@@ -1,0 +1,22 @@
+@use './../abstracts/mixins' as *;
+
+.pd {
+    @include generateSizes(padding);
+
+    &-top {
+        @include generateSizes(padding-top);
+    }
+
+    &-bottom {
+        @include generateSizes(padding-bottom);
+    }
+
+    &-left {
+        @include generateSizes(padding-left);
+    }
+
+    &-right {
+        @include generateSizes(padding-right);
+    }
+}
+

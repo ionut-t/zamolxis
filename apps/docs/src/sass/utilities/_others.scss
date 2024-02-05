@@ -1,0 +1,21 @@
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.border-radius {
+    &-sm {
+        border-radius: 4px;
+    }
+
+    &-top {
+        &-sm {
+            border-radius: 4px 4px 0 0;
+        }
+    }
+
+    &-bottom {
+        &-sm {
+            border-radius: 0 0 4px 4px;
+        }
+    }
+}

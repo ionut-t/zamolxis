@@ -1,0 +1,32 @@
+@use 'variables' as var;
+
+@mixin mobile {
+    @media only screen and (max-width: 768px) {
+        @content;
+    }
+}
+
+@mixin notMobile {
+    @media only screen and (min-width: 768px) {
+        @content;
+    }
+}
+
+@mixin generateSizes($property) {
+    @each $suffix, $size in var.$sizes {
+        &--#{$suffix} {
+            #{$property}: $size;
+        }
+    }
+}
+
+@mixin calcVPHeight($subtract, $property: height) {
+    #{$property}: calc(100vh - #{$subtract});
+    #{$property}: calc(100dvh - #{$subtract});
+}
+
+@mixin iconSize($size) {
+    height: $size;
+    width: $size;
+    font-size: $size;
+}

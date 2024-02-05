@@ -1,0 +1,26 @@
+.w-100 {
+    width: 100%;
+}
+
+.h-100 {
+    height: 100%;
+}
+
+$_width-sizes: (
+    10r: 10rem,
+    15r: 15rem,
+    20r: 20rem,
+    25r: 25rem,
+    30r: 30rem,
+    40r: 40rem,
+    50r: 50rem,
+    80r: 80rem
+);
+
+.mw {
+    @each $suffix, $size in $_width-sizes {
+        &-#{$suffix} {
+            max-width: $size;
+        }
+    }
+}
