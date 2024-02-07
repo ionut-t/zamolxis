@@ -9,18 +9,8 @@ describe('AppComponent', () => {
         }).compileComponents();
     });
 
-    it('should render title', () => {
+    it('should create', () => {
         const fixture = TestBed.createComponent(AppComponent);
-        fixture.detectChanges();
-        const compiled = fixture.nativeElement as HTMLElement;
-        expect(compiled.querySelector('h1')?.textContent).toContain(
-            'Welcome docs'
-        );
-    });
-
-    it(`should have as title 'docs'`, () => {
-        const fixture = TestBed.createComponent(AppComponent);
-        const app = fixture.componentInstance;
-        expect(app.title).toEqual('docs');
+        expect(fixture.componentInstance).toBeTruthy();
     });
 });

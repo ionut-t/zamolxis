@@ -1,0 +1,29 @@
+<docs-example-container>
+    @if(label) {
+    <p class="label-description mg-bottom--md">{{ label }}</p>
+    }
+
+    <mat-tab-group [mat-stretch-tabs]="false" mat-align-tabs="start" dynamicHeight>
+        <mat-tab label="Example">
+            <ng-content></ng-content>
+        </mat-tab>
+
+        @if(html) {
+        <mat-tab label="HTML">
+            <docs-code-snippet language="html" [snippet]="html" />
+        </mat-tab>
+        }
+
+        @if(ts) {
+        <mat-tab label="TS">
+            <docs-code-snippet language="typescript" [snippet]="ts" />
+        </mat-tab>
+        }
+
+        @if(css) {
+        <mat-tab label="CSS">
+            <docs-code-snippet language="css" [snippet]="css" />
+        </mat-tab>
+        }
+    </mat-tab-group>
+</docs-example-container>

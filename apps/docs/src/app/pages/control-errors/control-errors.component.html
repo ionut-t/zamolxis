@@ -1,0 +1,49 @@
+<section class="control-errors-section fx fx-col mw-80r pd--xxl mg-auto">
+    <h2 class="heading">Installation</h2>
+
+    <p>Note: Requires &#64;angular/cdk package.</p>
+
+    <docs-example-container>
+        <docs-code-snippet language="bash" snippet="npm install @zamolxis/control-errors @angular/cdk" />
+    </docs-example-container>
+
+    <h2 class="heading">Overview</h2>
+
+    <p>A modular directive that automatically displays error messages associated with form controls when validation
+        errors occur. It creates an overlay to show the error, positioned relative to the host input element.</p>
+
+    <docs-example-viewer label="Usage of the imtControlErrors directive to display the errors"
+                         [html]="Snippets.ControlErrors.html"
+                         [ts]="Snippets.ControlErrors.ts">
+        <docs-example-control-errors />
+    </docs-example-viewer>
+
+    <p>You can also provide a custom component that matches your organisation style guide.</p>
+    <docs-example-container>
+        <docs-code-snippet [snippet]="Snippets.CustomErrorComponent" />
+    </docs-example-container>
+
+    <p>Additionally, you can provide an errors dictionary to add support for more error messages or extend
+        <code class="code">ZX_CONTROL_ERRORS_DICTIONARY</code> object for matching all the error messages.</p>
+    <docs-example-container>
+        <docs-code-snippet [snippet]="Snippets.ErrorsConfig" />
+    </docs-example-container>
+
+    <p>You can also provide custom error messages for a specific field as shown below.</p>
+    <docs-example-container>
+        <docs-code-snippet language="html" [snippet]="Snippets.CustomError" />
+    </docs-example-container>
+
+    <h2 class="heading">API Reference</h2>
+
+    <div class="fx fx-col gap--xl mg-bottom--xxl">
+        <code class="code">
+            import &#123; ZxControlErrors &#125; from '&#64;zamolxis/control-errors';
+        </code>
+
+        <p>Selector: <code class="code">zxControlErrors</code></p>
+        <p>Exported as: <code class="code">zxControlErrors</code></p>
+    </div>
+
+    <docs-control-errors-properties />
+</section>

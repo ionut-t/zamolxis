@@ -1,0 +1,67 @@
+<h3 class="heading">Properties</h3>
+
+<docs-api-property-card class="mg-bottom--xxl">
+    <docs-api-property-name>
+        &#64;Input('zxControlErrors')
+        customErrors: Record&lt;string, string&gt;
+    </docs-api-property-name>
+    <docs-api-property-description>
+        Custom errors for the control. The key is the error name, the value is the error message.
+        If not specified, the default errors (from errors dictionary) will be used.
+    </docs-api-property-description>
+</docs-api-property-card>
+
+<docs-api-property-card class="mg-bottom--xxl">
+    <docs-api-property-name>
+        &#64;Input(&#123; transform: numberAttribute &#125;)
+        offsetY: number | undefined
+    </docs-api-property-name>
+    <docs-api-property-description>
+        The offset of the error message component in pixels from the top of the control.
+        If the value is not specified, the error message component will be displayed 12px from the top of the control.
+    </docs-api-property-description>
+</docs-api-property-card>
+
+<docs-api-property-card class="mg-bottom--xxl">
+    <docs-api-property-name>
+        &#64;Input(&#123; transform: numberAttribute &#125;)
+        debounceTime: number | undefined
+    </docs-api-property-name>
+    <docs-api-property-description>
+        The delay in milliseconds for displaying the error message when the user performs an action, such as typing.
+        The default value is 400ms.
+    </docs-api-property-description>
+</docs-api-property-card>
+
+<p>It is possible to configure the <code>offsetY</code> and <code>debounceTime</code> properties at the application (or
+    component) level using the <code>ZX_CONTROL_ERRORS_CONFIG</code> injection token, as shown below.</p>
+
+<docs-example-container>
+    <docs-code-snippet [snippet]="Snippets.Config"/>
+</docs-example-container>
+
+<h3 class="heading">Methods</h3>
+
+<docs-api-property-card class="mg-bottom--xxl">
+    <docs-api-property-name>checkForErrors(): void</docs-api-property-name>
+    <docs-api-property-description>
+        Can be used to manually trigger the check for errors.
+        Useful when there's a single input and not part of a form.
+
+        <docs-example-viewer [html]="Snippets.CheckForErrors">
+            <div class="fx fx-col mg-top--xxl mw-20r">
+                <mat-form-field>
+                    <input placeholder="Email"
+                           matInput
+                           [formControl]="emailCtrl"
+                           zxControlErrors
+                           #zxControlErrors="zxControlErrors" />
+                </mat-form-field>
+
+                <button mat-raised-button color="primary" (click)="zxControlErrors.checkForErrors()">
+                    Check for errors
+                </button>
+            </div>
+        </docs-example-viewer>
+    </docs-api-property-description>
+</docs-api-property-card>
