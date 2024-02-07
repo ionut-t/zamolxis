@@ -1,0 +1,15 @@
+:host {
+    &.zx-control-error-message {
+        display: block;
+        width: max-content;
+        position: relative;
+        z-index: var(--zx-error-z-index, 100);
+        line-height: var(--zx-error-line-height, 1.25);
+        border-radius: var(--zx-error-border-radius, 4px);
+        font-size: var(--zx-error-font-size, 12px);
+        padding: var(--zx-error-padding, 6px 8px);
+        background-color: var(--zx-error-background-color, #cc1105);
+        color: var(--zx-error-color, #fff);
+        box-shadow: var(--zx-error-box-shadow, 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12));
+    }
+}

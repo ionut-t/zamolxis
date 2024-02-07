@@ -3,26 +3,16 @@
     "targetDefaults": {
         "build": {
             "cache": true,
-            "dependsOn": [
-                "^build"
-            ],
-            "inputs": [
-                "production",
-                "^production"
-            ]
+            "dependsOn": ["^build"],
+            "inputs": ["production", "^production"]
         },
         "lint": {
             "cache": true
         },
         "@angular-devkit/build-angular:application": {
             "cache": true,
-            "dependsOn": [
-                "^build"
-            ],
-            "inputs": [
-                "production",
-                "^production"
-            ]
+            "dependsOn": ["^build"],
+            "inputs": ["production", "^production"]
         },
         "@nx/eslint:lint": {
             "cache": true,
@@ -52,17 +42,20 @@
         },
         "e2e": {
             "cache": true,
+            "inputs": ["default", "^production"]
+        },
+        "build-storybook": {
+            "cache": true,
             "inputs": [
                 "default",
-                "^production"
+                "^production",
+                "{projectRoot}/.storybook/**/*",
+                "{projectRoot}/tsconfig.storybook.json"
             ]
         }
     },
     "namedInputs": {
-        "default": [
-            "{projectRoot}/**/*",
-            "sharedGlobals"
-        ],
+        "default": ["{projectRoot}/**/*", "sharedGlobals"],
         "production": [
             "default",
             "!{projectRoot}/.eslintrc.json",
@@ -74,7 +67,10 @@
             "!{projectRoot}/test-setup.[jt]s",
             "!{projectRoot}/cypress/**/*",
             "!{projectRoot}/**/*.cy.[jt]s?(x)",
-            "!{projectRoot}/cypress.config.[jt]s"
+            "!{projectRoot}/cypress.config.[jt]s",
+            "!{projectRoot}/**/*.stories.@(js|jsx|ts|tsx|mdx)",
+            "!{projectRoot}/.storybook/**/*",
+            "!{projectRoot}/tsconfig.storybook.json"
         ],
         "sharedGlobals": []
     },
@@ -84,7 +80,21 @@
             "linter": "eslint",
             "style": "scss",
             "unitTestRunner": "jest"
+        },
+        "@nx/angular:library": {
+            "linter": "eslint",
+            "unitTestRunner": "jest"
+        },
+        "@nx/angular:component": {
+            "style": "scss"
         }
     },
-    "nxCloudAccessToken": "NGQ2N2QxY2QtOGNmZS00ZjJmLTljZWUtMzk3MGVmZmRlNTc2fHJlYWQtd3JpdGU="
+    "nxCloudAccessToken": "NGQ2N2QxY2QtOGNmZS00ZjJmLTljZWUtMzk3MGVmZmRlNTc2fHJlYWQtd3JpdGU=",
+    "tasksRunnerOptions": {
+        "default": {
+            "options": {
+                "cacheableOperations": ["build-storybook"]
+            }
+        }
+    }
 }

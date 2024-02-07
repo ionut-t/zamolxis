@@ -1,0 +1,86 @@
+{
+    "name": "control-errors",
+    "$schema": "../../node_modules/nx/schemas/project-schema.json",
+    "sourceRoot": "libs/control-errors/src",
+    "prefix": "zx",
+    "tags": [],
+    "projectType": "library",
+    "targets": {
+        "build": {
+            "executor": "@nx/angular:package",
+            "outputs": ["{workspaceRoot}/dist/{projectRoot}"],
+            "options": {
+                "project": "libs/control-errors/ng-package.json"
+            },
+            "configurations": {
+                "production": {
+                    "tsConfig": "libs/control-errors/tsconfig.lib.prod.json"
+                },
+                "development": {
+                    "tsConfig": "libs/control-errors/tsconfig.lib.json"
+                }
+            },
+            "defaultConfiguration": "production"
+        },
+        "test": {
+            "executor": "@nx/jest:jest",
+            "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+            "options": {
+                "jestConfig": "libs/control-errors/jest.config.ts"
+            }
+        },
+        "lint": {
+            "executor": "@nx/eslint:lint"
+        },
+        "storybook": {
+            "executor": "@storybook/angular:start-storybook",
+            "options": {
+                "port": 4400,
+                "configDir": "libs/control-errors/.storybook",
+                "browserTarget": "control-errors:build-storybook",
+                "compodoc": false
+            },
+            "configurations": {
+                "ci": {
+                    "quiet": true
+                }
+            }
+        },
+        "build-storybook": {
+            "executor": "@storybook/angular:build-storybook",
+            "outputs": ["{options.outputDir}"],
+            "options": {
+                "outputDir": "dist/storybook/control-errors",
+                "configDir": "libs/control-errors/.storybook",
+                "browserTarget": "control-errors:build-storybook",
+                "compodoc": false,
+                "styles": [
+                    "apps/docs/src/styles.scss"
+                ]
+            },
+            "configurations": {
+                "ci": {
+                    "quiet": true
+                }
+            }
+        },
+        "test-storybook": {
+            "executor": "nx:run-commands",
+            "options": {
+                "command": "test-storybook -c libs/control-errors/.storybook --url=http://localhost:4400"
+            }
+        },
+        "static-storybook": {
+            "executor": "@nx/web:file-server",
+            "options": {
+                "buildTarget": "control-errors:build-storybook",
+                "staticFilePath": "dist/storybook/control-errors"
+            },
+            "configurations": {
+                "ci": {
+                    "buildTarget": "control-errors:build-storybook:ci"
+                }
+            }
+        }
+    }
+}
