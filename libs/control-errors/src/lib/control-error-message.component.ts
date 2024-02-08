@@ -1,5 +1,5 @@
 import { animate, style, transition, trigger } from '@angular/animations';
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { ZxControlErrorProps } from './component';
 
 const ANIMATION_TIME = 250;
@@ -27,6 +27,7 @@ const ANIMATION_TIME = 250;
             ])
         ])
     ],
+    changeDetection: ChangeDetectionStrategy.OnPush,
     host: {
         class: 'zx-control-error-message',
         '[style.width.px]': 'width',
