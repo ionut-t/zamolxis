@@ -1,9 +1,10 @@
 import { Route } from '@angular/router';
+import { RoutePath } from './core/navigation-links';
 
 export const appRoutes: Route[] = [
-    { path: '', pathMatch: 'full', redirectTo: 'control-errors' },
+    { path: '', pathMatch: 'full', redirectTo: RoutePath.ControlErrors },
     {
-        path: 'control-errors',
+        path: RoutePath.ControlErrors,
         loadComponent: () =>
             import('./pages/control-errors/control-errors.component').then(
                 c => c.ControlErrorsComponent
