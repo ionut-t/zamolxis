@@ -18,7 +18,12 @@
                     (click)="drawer.toggle()">
                 <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
             </button>
-            <span>{{ title }}</span>
+            <h1 class="toolbar-title">{{ title }}</h1>
+
+            <a class="github-link" mat-button href="https://github.com/ionut-t/zamolxis" target="_blank"
+               aria-label="Github Repository">
+                <img ngSrc="assets/github.png" width="36" height="36" alt="Github Repository">
+            </a>
         </mat-toolbar>
         <ng-content></ng-content>
     </mat-sidenav-content>

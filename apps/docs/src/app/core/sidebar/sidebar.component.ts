@@ -1,4 +1,4 @@
-import { AsyncPipe } from '@angular/common';
+import { AsyncPipe, NgOptimizedImage } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
@@ -24,7 +24,8 @@ import { NAVIGATION_LINKS } from '../navigation-links';
         MatIconModule,
         AsyncPipe,
         RouterLink,
-        RouterLinkActive
+        RouterLinkActive,
+        NgOptimizedImage
     ]
 })
 export class SidebarComponent {
