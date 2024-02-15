@@ -1,5 +1,5 @@
 import { Route } from '@angular/router';
-import { RoutePath } from './core/navigation-links';
+import { RouteLabel, RoutePath } from './core/navigation-links';
 
 export const appRoutes: Route[] = [
     { path: '', pathMatch: 'full', redirectTo: RoutePath.ControlErrors },
@@ -9,6 +9,14 @@ export const appRoutes: Route[] = [
             import('./pages/control-errors/control-errors.component').then(
                 c => c.ControlErrorsComponent
             ),
-        title: 'Zamolxis | Control Errors'
+        title: `Zamolxis | ${RouteLabel.ControlErrors}`
+    },
+    {
+        path: RoutePath.NumericInput,
+        loadComponent: () =>
+            import('./pages/numeric-input/numeric-input.component').then(
+                c => c.NumericInputComponent
+            ),
+        title: `Zamolxis | ${RouteLabel.NumericInput}`
     }
 ];

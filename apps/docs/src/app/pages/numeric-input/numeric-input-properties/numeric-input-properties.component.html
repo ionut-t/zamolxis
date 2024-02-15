@@ -1,0 +1,54 @@
+<h3 class="heading">Properties</h3>
+
+<docs-api-property-card class="mg-bottom--xxl">
+    <docs-api-property-name>
+        &#64;Input('zxNumericInput') digitsInfo: string;
+    </docs-api-property-name>
+    <docs-api-property-description>
+        It accepts a string that represents the format of the number. If not provided, it defaults to `1.0-3`
+        (one integer digit, zero to three fractional digits).
+        See <a class="docs-link" href="https://angular.io/api/common/formatNumber" target="_blank">Angular documentation
+        for more details about formatting the input
+        value</a>.
+    </docs-api-property-description>
+</docs-api-property-card>
+
+<docs-api-property-card class="mg-bottom--xxl">
+    <docs-api-property-name>
+        &#64;Input() locale: string | undefined
+    </docs-api-property-name>
+    <docs-api-property-description>
+        Applies locale-dictated formatting to a number,
+        including rules for digit grouping (e.g., thousands separators),
+        the choice of decimal mark (period or comma), and potentially other region-specific adjustments.
+        If not provided, the value of LOCALE_ID will be used (en-US by default).
+        See <a class="docs-link" href="https://angular.io/api/core/LOCALE_ID" target="_blank">Angular documentation for
+        setting the app locale</a>.
+    </docs-api-property-description>
+</docs-api-property-card>
+
+<docs-api-property-card class="mg-bottom--xxl">
+    <docs-api-property-name>
+        &#64;Input(&#123; transform: booleanAttribute &#125;) disableDecimalRounding: boolean
+    </docs-api-property-name>
+    <docs-api-property-description>
+        Disables the rounding of the value decimal. If set to <code class="code">true</code>, the input value will not
+        be rounded when the displayed value is truncated.
+        Default is <code class="code">false</code>.
+    </docs-api-property-description>
+</docs-api-property-card>
+
+<docs-api-property-card class="mg-bottom--xxl">
+    <docs-api-property-name>
+        &#64;Output() valueChange: EventEmitter&lt;number | null&gt;
+    </docs-api-property-name>
+</docs-api-property-card>
+
+<p>
+    It is possible to configure the <code class="code">digitsInfo</code>, <code class="code">locale</code> and
+    <code class="code">disableDecimalRounding</code> properties at the application (or component) level
+    using the <code class="code">ZX_NUMERIC_INPUT_CONFIG</code> injection token, as shown below.</p>
+
+<docs-example-container>
+    <docs-code-snippet [snippet]="config" />
+</docs-example-container>

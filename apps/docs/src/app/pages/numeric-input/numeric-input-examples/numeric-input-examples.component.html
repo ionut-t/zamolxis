@@ -1,0 +1,27 @@
+<div class="fx fx-col gap--xxl pd-top--lg mw-25r">
+    <p>{{ value }} is the value passed to the inputs below.</p>
+
+    <div>
+        <p>Default usage</p>
+        <mat-form-field>
+            <input zxNumericInput #input1="zxNumericInput" [value]="value" />
+            <mat-hint>Input value: {{ input1.value }}</mat-hint>
+        </mat-form-field>
+    </div>
+
+    <div>
+        <p>With no decimal rounding</p>
+        <mat-form-field>
+            <input zxNumericInput disableDecimalRounding #input2="zxNumericInput" [value]="value" />
+            <mat-hint>Input value: {{ input2.value }}</mat-hint>
+        </mat-form-field>
+    </div>
+
+    <div>
+        <p>With French locale and digits info "1.2-2"</p>
+        <mat-form-field>
+            <input zxNumericInput="1.2-2" locale="fr-Fr" #input3="zxNumericInput" [value]="value" />
+            <mat-hint>Input value: {{ input3.value }}</mat-hint>
+        </mat-form-field>
+    </div>
+</div>

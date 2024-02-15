@@ -1,0 +1,50 @@
+<section class="control-errors-section fx fx-col mw-80r pd--xxl mg-auto">
+    <h2 class="heading">Installation</h2>
+
+    <p>Note: Design to be used inside
+        <a class="docs-link" href="https://material.angular.io/components/form-field/overview" target="_blank">
+            &lt;mat-form-field&gt; component from Angular Material
+        </a>.
+    </p>
+
+    <docs-example-container>
+        <docs-code-snippet language="bash" snippet="npm install @zamolxis/numeric-input" />
+    </docs-example-container>
+
+    <h2 class="heading">Overview</h2>
+
+    <p>
+        A directive designed to format numeric input fields to adhere to
+        locale-specific formatting rules, such as digit grouping (thousands separators),
+        decimal mark usage (period or comma), and potentially other region-specific adjustments and to return a number
+        value.
+    </p>
+
+    <p>
+        It uses the formatNumber function from the Angular &#125;angular/common package for formatting the displayed
+        value, which is also used by the DecimalPipe.
+
+        Although the input type needs to be a type text to allow for locale-specific formatting, the emitted value will
+        always be a number. If the value is truncated it will be rounded using the "to-nearest" method. This behaviour
+        can be disabled by setting the disableDecimalRounding input to true.
+    </p>
+
+    <docs-example-viewer label="Usage of the zxNumericInput directive"
+                         [html]="Snippets.Examples.html"
+                         [ts]="Snippets.Examples.ts">
+        <docs-numeric-input-examples />
+    </docs-example-viewer>
+
+    <h2 class="heading">API Reference</h2>
+
+    <div class="fx fx-col gap--xl mg-bottom--xxl">
+        <code class="code">
+            import &#123; ZxNumericInput &#125; from '&#64;zamolxis/numeric-input';
+        </code>
+
+        <p>Selector: <code class="code">zxNumericInput</code></p>
+        <p>Exported as: <code class="code">zxNumericInput</code></p>
+    </div>
+
+    <docs-numeric-input-properties />
+</section>
