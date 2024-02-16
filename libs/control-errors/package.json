@@ -1,11 +1,11 @@
 {
     "name": "@zamolxis/control-errors",
-    "version": "0.1.1-0",
+    "version": "0.1.1-1",
     "author": "Ionut Traistaru",
     "description": "Angular library for handling control errors",
     "homepage": "https://zamolxis.web.app/control-errors",
     "publishConfig": {
-       "access": "public"
+        "access": "public"
     },
     "keywords": [
         "angular",
