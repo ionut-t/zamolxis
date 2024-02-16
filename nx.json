@@ -96,5 +96,8 @@
                 "cacheableOperations": ["build-storybook"]
             }
         }
+    },
+    "release": {
+        "projectsRelationship": "independent"
     }
 }
