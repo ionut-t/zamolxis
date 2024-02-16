@@ -1,6 +1,6 @@
 {
     "name": "@zamolxis/numeric-input",
-    "version": "0.1.1-0",
+    "version": "0.0.1-0",
     "author": "Ionut Traistaru",
     "description": "Angular library for formatting numeric inputs",
     "homepage": "https://zamolxis.web.app/numeric-input",
