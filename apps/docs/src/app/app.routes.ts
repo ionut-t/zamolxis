@@ -2,7 +2,12 @@ import { Route } from '@angular/router';
 import { RouteLabel, RoutePath } from './core/navigation-links';
 
 export const appRoutes: Route[] = [
-    { path: '', pathMatch: 'full', redirectTo: RoutePath.ControlErrors },
+    {
+        path: '',
+        loadComponent: () =>
+            import('./pages/home/home.component').then(c => c.HomeComponent),
+        title: 'Zamolxis'
+    },
     {
         path: RoutePath.ControlErrors,
         loadComponent: () =>
