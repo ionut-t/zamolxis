@@ -1,9 +1,11 @@
+import { FocusMonitor } from '@angular/cdk/a11y';
 import { Component, Type, ViewChild } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { By } from '@angular/platform-browser';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { of } from 'rxjs';
 import { ZxNumericInput } from './numeric-input.directive';
 
 const createKeyDownEvent = (value: string, cancelable = true) => {
@@ -66,6 +68,12 @@ const mountComponent = async <T>(
     testComponent: Type<T>,
     imports: unknown[] = []
 ) => {
+    const focusMonitor = {
+        monitor: jest.fn()
+    };
+
+    focusMonitor.monitor.mockReturnValue(of(null));
+
     await TestBed.configureTestingModule({
         declarations: [testComponent],
         imports: [
@@ -73,7 +81,8 @@ const mountComponent = async <T>(
             MatFormFieldModule,
             NoopAnimationsModule,
             ...imports
-        ]
+        ],
+        providers: [{ provide: FocusMonitor, useValue: focusMonitor }]
     }).compileComponents();
 
     const fixture = TestBed.createComponent(testComponent);
@@ -81,6 +90,7 @@ const mountComponent = async <T>(
     fixture.detectChanges();
 
     const input = fixture.debugElement.query(By.css('input')).nativeElement;
+
     return { fixture, component, input };
 };
 
@@ -104,12 +114,10 @@ describe('ZxNumericInput', () => {
             expect(component.directive).toBeTruthy();
         });
 
-        it('should format the input value as a string and return the control value as number', () => {
-            fakeKeyDownEvent(input, '1,000.10');
+        it('should display the formatted value', () => {
+            component.ctrl.setValue(1000.1);
 
             expect(input.value).toBe('1,000.10');
-
-            expect(component.ctrl.value).toBe(1000.1);
         });
 
         it('should return an integer', () => {

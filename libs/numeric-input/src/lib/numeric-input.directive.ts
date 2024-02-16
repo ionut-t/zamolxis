@@ -163,12 +163,13 @@ export class ZxNumericInput
     @Input('aria-describedby') userAriaDescribedBy = '';
 
     // Implemented as part of MatFormFieldControl
-    @Input()
     get value(): number | null {
         if (this.control.invalid) return null;
 
         return this.control.value;
     }
+
+    @Input()
     set value(value: NumberInput) {
         if (this.value === value) return;
 
@@ -181,7 +182,7 @@ export class ZxNumericInput
             );
 
             this.control.setValue(parsedValue);
-            this._formatValue(Number(value));
+            this._formatValue(parsedValue);
         } else {
             this.control.setValue(null);
         }
@@ -271,7 +272,7 @@ export class ZxNumericInput
                     this.touched = true;
                     this.focused = false;
                     this.onTouched();
-                    this._formatValue(this.control.value);
+                    this._formatValue(this.value);
                 }
             });
 
@@ -327,8 +328,8 @@ export class ZxNumericInput
             // Replace decimal separator with dot
             .replace(new RegExp('\\' + this._decimalSeparator()), '.');
 
-        this.value = stripNonNumericCharacters(normalizedValue);
-        this._updateValue();
+        this._host.value = stripNonNumericCharacters(normalizedValue);
+        this._updateValue(this._host.value);
     }
 
     @HostListener('keydown', ['$event'])
@@ -374,9 +375,7 @@ export class ZxNumericInput
 
             // Allow users to add "-" at the beginning if it's not already there
             if (!currentValue.startsWith('-') && cursorPosition === 0) {
-                this._host.value = '-' + currentValue;
-                this.value = this._host.value;
-                this._updateValue();
+                this._updateValue(this._host.value);
                 event.preventDefault();
             }
         }
@@ -423,11 +422,23 @@ export class ZxNumericInput
     private _increment(event: KeyboardEvent, increment: -1 | 1) {
         event.preventDefault();
         this._host.value = String((this.control.value ?? 0) + increment);
-        this.value = this._host.value;
-        this._updateValue();
+        this._updateValue(this._host.value);
     }
 
-    private _updateValue() {
+    private _updateValue(value: NumberInput) {
+        if (!isNil(value)) {
+            this._inputValue = String(value);
+            const parsedValue = parseValue(
+                this._inputValue,
+                this._digitsInfo,
+                this._disableRounding
+            );
+
+            this.control.setValue(parsedValue);
+        } else {
+            this.control.setValue(null);
+        }
+
         this.valueChange.emit(this.value);
         this.onChange(this.value);
     }
