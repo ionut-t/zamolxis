@@ -1,6 +1,6 @@
 {
     "name": "@zamolxis/control-errors",
-    "version": "0.1.0",
+    "version": "0.1.1-0",
     "peerDependencies": {
         "@angular/animations": ">=17.0.0",
         "@angular/cdk": ">=17.0.0",
