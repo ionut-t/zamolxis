@@ -1,6 +1,28 @@
 {
     "name": "@zamolxis/control-errors",
     "version": "0.1.1-0",
+    "author": "Ionut Traistaru",
+    "description": "Angular library for handling control errors",
+    "homepage": "https://zamolxis.web.app/control-errors",
+    "publishConfig": {
+       "access": "public"
+    },
+    "keywords": [
+        "angular",
+        "reactive forms",
+        "control errors"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/ionut-t/zamolxis/tree/main/libs/control-errors"
+    },
+    "license": "MIT",
+    "contributors": [
+        {
+            "name": "Ionut Traistaru",
+            "url": "https://github.com/ionut-t"
+        }
+    ],
     "peerDependencies": {
         "@angular/animations": ">=17.0.0",
         "@angular/cdk": ">=17.0.0",
