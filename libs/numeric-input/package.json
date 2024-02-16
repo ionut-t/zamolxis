@@ -2,7 +2,7 @@
     "name": "@zamolxis/numeric-input",
     "version": "0.1.1-0",
     "author": "Ionut Traistaru",
-    "description": "Angular library for handling control errors",
+    "description": "Angular library for formatting numeric inputs",
     "homepage": "https://zamolxis.web.app/numeric-input",
     "publishConfig": {
         "access": "public"
@@ -15,7 +15,7 @@
     ],
     "repository": {
         "type": "git",
-        "url": "https://github.com/ionut-t/zamolxis/tree/main/libs/numeric-input"
+        "url": "https://github.com/ionut-t/zamolxis"
     },
     "license": "MIT",
     "contributors": [
