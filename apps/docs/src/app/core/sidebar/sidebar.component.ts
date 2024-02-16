@@ -1,6 +1,7 @@
 import { AsyncPipe, NgOptimizedImage } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
+import { MatRipple } from '@angular/material/core';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -25,12 +26,17 @@ import { NAVIGATION_LINKS } from '../navigation-links';
         AsyncPipe,
         RouterLink,
         RouterLinkActive,
-        NgOptimizedImage
+        NgOptimizedImage,
+        MatRipple
     ]
 })
 export class SidebarComponent {
     readonly navigationLinks = NAVIGATION_LINKS;
 
     readonly isHandset$: Observable<boolean> = inject(Layout).isHandset$;
-    readonly title = inject(Title).getTitle().split(' | ')[1];
+    readonly _titleService = inject(Title);
+
+    get title(): string {
+        return this._titleService.getTitle().split(' | ')[1] ?? '';
+    }
 }

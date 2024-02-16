@@ -3,7 +3,9 @@
                  [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
                  [mode]="(isHandset$ | async) ? 'over' : 'side'"
                  [opened]="(isHandset$ | async) === false">
-        <mat-toolbar>Menu</mat-toolbar>
+        <mat-toolbar>
+            <a matRipple class="logo ff-secondary" routerLink="">Zamolxis</a>
+        </mat-toolbar>
         <mat-nav-list>
             @for (link of navigationLinks; track link) {
                 <a mat-list-item [routerLink]="link.path" routerLinkActive="active-route">{{ link.label }}</a>
