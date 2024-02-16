@@ -13,5 +13,3 @@ A collection of modular libraries for use within Angular apps.
 - Material Phone Input: Coming soon
 - Product Tour: Coming soon
 - Material Multi-View Calendar: Coming soon
-
-### Warning: This is a work in progress. No library has been published to npm yet.
