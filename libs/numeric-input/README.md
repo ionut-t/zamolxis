@@ -2,7 +2,7 @@
 
 ## Installation
 
-Note: Design to be used inside `<mat-form-field>` [component from Angular Material](https://material.angular.io/components/form-field/overview).
+Note: Designed to be used inside `<mat-form-field>` [component from Angular Material](https://material.angular.io/components/form-field/overview).
 
 ```bash
 npm install @zamolxis/numeric-input
