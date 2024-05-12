@@ -1,0 +1,43 @@
+:host {
+    .zx-phone-input-container {
+        display: flex;
+
+        input {
+            &.zx-code-control {
+                width: 50px;
+                margin-right: 5px;
+
+                &::selection {
+                    user-select: none;
+                    background-color: transparent;
+                    opacity: 0;
+                }
+
+                &__separator {
+                    border-right: 1px solid #ccc !important;;
+                }
+            }
+        }
+
+        $codeWidth: 55px;
+
+        .phone-country-code {
+            width: $codeWidth;
+        }
+
+        .phone-control {
+            width: calc(100% - #{$codeWidth});
+        }
+    }
+}
+
+.zx-country-option {
+    display: flex;
+    align-items: center;
+
+    .country-flag {
+        width: 16px;
+        height: 12px;
+        margin-right: 20px;
+    }
+}

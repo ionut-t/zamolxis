@@ -16,7 +16,8 @@
         "baseUrl": ".",
         "paths": {
             "@zamolxis/control-errors": ["libs/control-errors/src/index.ts"],
-            "@zamolxis/numeric-input": ["libs/numeric-input/src/index.ts"]
+            "@zamolxis/numeric-input": ["libs/numeric-input/src/index.ts"],
+            "@zamolxis/phone-input": ["libs/phone-input/src/index.ts"]
         }
     },
     "exclude": ["node_modules", "tmp"]

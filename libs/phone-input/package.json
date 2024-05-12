@@ -1,0 +1,29 @@
+{
+    "name": "@zamolxis/phone-input",
+    "version": "0.0.1",
+    "keywords": [
+        "angular",
+        "phone input"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/ionut-t/zamolxis"
+    },
+    "license": "MIT",
+    "contributors": [
+        {
+            "name": "Ionut Traistaru",
+            "url": "https://github.com/ionut-t"
+        }
+    ],
+    "peerDependencies": {
+        "@angular/cdk": ">=17.0.0",
+        "@angular/common": ">=17.0.0",
+        "@angular/core": ">=17.0.0",
+        "@angular/forms": ">=17.0.0",
+        "@angular/material": ">=17.0.0",
+        "libphonenumber-js": "^1.10.57",
+        "rxjs": ">=7.8.0"
+    },
+    "sideEffects": false
+}

@@ -1,0 +1,45 @@
+<div role="group"
+     class="zx-phone-input-container"
+     [formGroup]="phoneForm"
+     [attr.aria-labelledby]="_formField.getLabelId()"
+     (focusin)="onFocusIn()"
+     (focusout)="onFocusOut($event)">
+    <input #codeInput
+           autocomplete="off"
+           type="text"
+           class="zx-code-control mat-mdc-input-element mat-mdc-form-field-input-control mdc-text-field__input"
+           formControlName="code"
+           [zxFlag]="this._selectedCode()"
+           [class.zx-code-control__separator]="shouldLabelFloat"
+           [matAutocomplete]="countryTpl"
+           (blur)="onFocusOutCode()"
+           (focus)="onFocusInCode()"
+           (input)="_handleInput(phoneForm.controls.code, codeInput); onInput()" />
+
+    <mat-autocomplete #countryTpl="matAutocomplete"
+                      (optionSelected)="optionSelected($event)"
+                      panelWidth="250px">
+
+        @for (country of countries$ | async; track country.alpha2Code) {
+            <mat-option [value]="country.alpha2Code">
+                <div class="zx-country-option">
+                    <img class="country-flag"
+                         *ngIf="country.alpha2Code | countryFlag as flag"
+                         width="16"
+                         height="12"
+                         [ngSrc]="flag"
+                         [srcset]="flag + ' 2x, ' + flag + ' 3x'"
+                         [alt]="country.name + 'flag'" />
+
+                    <span>{{ country.name }}</span></div>
+            </mat-option>
+        }
+    </mat-autocomplete>
+    <input #phoneInput
+           autocomplete="off"
+           formControlName="phone"
+           zxOnlyDigits
+           class="phone-control mat-mdc-input-element mat-mdc-form-field-input-control mdc-text-field__input"
+           [required]="required"
+           (input)="formatPhoneNumber(); _handleInput(phoneForm.controls.phone, phoneInput)" />
+</div>
